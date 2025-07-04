@@ -168,7 +168,7 @@ export default function Login() {
               disabled={isLoading}
               className="w-full bg-orange-500 hover:bg-orange-600 text-white font-medium py-2.5 transition-colors disabled:opacity-50"
             >
-              {isLoading ? "Signing In..." : "Sign In"}
+              <Link href='/create_profile/profile'>{isLoading ? "Signing In..." : "Sign In"} </Link>
             </Button>
           </form>
 

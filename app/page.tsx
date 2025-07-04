@@ -338,7 +338,8 @@ export default function Home() {
           {nftItems
             .filter((item) => activeTab === "All" || item.category === activeTab)
             .map((item) => (
-              <div
+              <Link href='/explore/detail'>
+                <div
                 key={item.id}
                 className="bg-gray-900 rounded-lg overflow-hidden group hover:bg-gray-800 transition-colors"
               >
@@ -376,6 +377,7 @@ export default function Home() {
                   <Button className="w-full bg-orange-500 hover:bg-orange-600 text-white">Buy Now</Button>
                 </div>
               </div>
+              </Link>
             ))}
         </div>
 
