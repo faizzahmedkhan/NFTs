@@ -301,13 +301,13 @@ export default function Home() {
         </div>
 
         {/* Character Illustration */}
-        <div className="flex-1 flex justify-center items-center relative">
+        <div className="flex-1 flex justify-center items-center relative hidden md:block ">
           <div className="relative">
             <Image
               src="/nft-character.png"
               alt="3D Character with VR goggles"
-              width={500}
-              height={500}
+              width={700}
+              height={700}
               className="object-contain"
             />
           </div>

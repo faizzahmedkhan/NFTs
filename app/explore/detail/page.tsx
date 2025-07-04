@@ -92,7 +92,7 @@ export default function NFTDetailPage() {
   return (
     <main className="text-white min-h-screen bg-black">
       {/* Header */}
-      <div className="border-b border-gray-800">
+      {/* <div className="border-b border-gray-800">
         <div className="container mx-auto px-4 py-4">
           <Link
             href="/explore"
@@ -102,7 +102,7 @@ export default function NFTDetailPage() {
             Back to Explore
           </Link>
         </div>
-      </div>
+      </div> */}
 
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">

@@ -253,7 +253,7 @@ export default function Component() {
           <div className="flex justify-center items-center min-h-[400px] px-4">
             <div className="max-w-2xl  w-full">
               {/* Upload Single Item */}
-              <Card className="bg-gray-900/50 w-1/2 mx-auto border-gray-800 p-8 text-center hover:border-orange-500/50 transition-colors group">
+              <Card className="bg-gray-900/50 md:w-1/2  mx-auto border-gray-800 p-8 text-center hover:border-orange-500/50 transition-colors group">
                 <div className="mb-6">
                   <div className="inline-flex items-center justify-center w-20 h-20 mb-4">
                     <Layers className="w-12 h-12 text-gray-400 group-hover:text-orange-500 transition-colors" />
@@ -268,7 +268,7 @@ export default function Component() {
                 </div>
                 <Button
                   variant="outline"
-                  className="border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white transition-colors w-full bg-transparent"
+                  className="border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white transition-colors w-full bg-transparent "
                   onClick={handleSingleUploadClick}
                 >
                   Upload Single Image
