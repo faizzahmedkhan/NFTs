@@ -346,11 +346,11 @@ export default function Home() {
               (item) => activeTab === "All" || item.category === activeTab
             )
             .map((item) => (
-              <Link href="/explore/detail">
-                <div
+              <div
                   key={item.id}
                   className="bg-gray-900 rounded-lg overflow-hidden group hover:bg-gray-800 transition-colors"
                 >
+              <Link href="/explore/detail">
                   <div className="relative">
                     <Image
                       src={item.image || "/placeholder.svg"}
@@ -395,8 +395,8 @@ export default function Home() {
                       Buy Now
                     </Button>
                   </div>
-                </div>
               </Link>
+                </div>
             ))}
         </div>
 
