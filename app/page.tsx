@@ -341,12 +341,12 @@ export default function Home() {
 
         {/* NFT Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <Link href="/explore/detail">
           {nftItems
             .filter(
               (item) => activeTab === "All" || item.category === activeTab
             )
             .map((item) => (
-              <Link href="/explore/detail">
                 <div
                   key={item.id}
                   className="bg-gray-900 rounded-lg overflow-hidden group hover:bg-gray-800 transition-colors"
@@ -396,8 +396,8 @@ export default function Home() {
                     </Button>
                   </div>
                 </div>
-              </Link>
             ))}
+            </Link>
         </div>
 
         {/* Show message when no items found */}
