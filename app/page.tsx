@@ -5,8 +5,14 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight, Heart, Search, Shield } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Wallet, ImageIcon, Plus, TrendingUp, Verified } from "lucide-react";
-import { Input } from "@/components/ui/input"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import Link from "next/link";
 
 const nftItems = [
@@ -138,7 +144,7 @@ const nftItems = [
     creator: "@watercolor_art",
     category: "Painting",
   },
-]
+];
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("All");
@@ -260,7 +266,7 @@ export default function Home() {
         "/trend1.png",
       ],
     },
-  ]
+  ];
 
   return (
     <main className="px-8 ">
@@ -283,13 +289,13 @@ export default function Home() {
 
           <div className="flex gap-4">
             <Button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-lg text-lg">
-              <Link href='/explore'>Explore</Link>
+              <Link href="/explore">Explore</Link>
             </Button>
             <Button
               variant="outline"
               className="border-gray-600 text-white hover:bg-gray-800 px-8 py-3 rounded-lg text-lg bg-transparent"
             >
-              <Link href='/create'>Create</Link>
+              <Link href="/create">Create</Link>
             </Button>
           </div>
         </div>
@@ -336,55 +342,72 @@ export default function Home() {
         {/* NFT Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {nftItems
-            .filter((item) => activeTab === "All" || item.category === activeTab)
+            .filter(
+              (item) => activeTab === "All" || item.category === activeTab
+            )
             .map((item) => (
-              <Link href='/explore/detail'>
+              <Link href="/explore/detail">
                 <div
-                key={item.id}
-                className="bg-gray-900 rounded-lg overflow-hidden group hover:bg-gray-800 transition-colors"
-              >
-                <div className="relative">
-                  <Image
-                    src={item.image || "/placeholder.svg"}
-                    alt={item.title}
-                    width={300}
-                    height={300}
-                    className="w-full h-64 object-cover"
-                  />
-                  <button className="absolute top-3 right-3 p-2 bg-black/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
-                    <Heart className="w-4 h-4 text-white" />
-                  </button>
-                </div>
-
-                <div className="p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="font-semibold text-white">{item.title}</h3>
-                    <span className="text-xs bg-orange-500/20 text-orange-500 px-2 py-1 rounded">{item.category}</span>
+                  key={item.id}
+                  className="bg-gray-900 rounded-lg overflow-hidden group hover:bg-gray-800 transition-colors"
+                >
+                  <div className="relative">
+                    <Image
+                      src={item.image || "/placeholder.svg"}
+                      alt={item.title}
+                      width={300}
+                      height={300}
+                      className="w-full h-64 object-cover"
+                    />
+                    <button className="absolute top-3 right-3 p-2 bg-black/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                      <Heart className="w-4 h-4 text-white" />
+                    </button>
                   </div>
 
-                  <div className="flex items-center justify-between mb-4">
-                    <div>
-                      <div className="text-lg font-bold text-white">
-                        {item.price} ETH
-                        <span className="text-xs text-gray-400 ml-1">($40,205.8)</span>
-                      </div>
-                      <div className="text-sm text-gray-400">
-                        Creator: <span className="text-white"><Link href='/create_profile/profile'>{item.creator}</Link></span>
+                  <div className="p-4">
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="font-semibold text-white">{item.title}</h3>
+                      <span className="text-xs bg-orange-500/20 text-orange-500 px-2 py-1 rounded">
+                        {item.category}
+                      </span>
+                    </div>
+
+                    <div className="flex items-center justify-between mb-4">
+                      <div>
+                        <div className="text-lg font-bold text-white">
+                          {item.price} ETH
+                          <span className="text-xs text-gray-400 ml-1">
+                            ($40,205.8)
+                          </span>
+                        </div>
+                        <div className="text-sm text-gray-400">
+                          Creator:{" "}
+                          <span className="text-white">
+                            <Link href="/create_profile/profile">
+                              {item.creator}
+                            </Link>
+                          </span>
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  <Button className="w-full bg-orange-500 hover:bg-orange-600 text-white">Buy Now</Button>
+                    <Button className="w-full bg-orange-500 hover:bg-orange-600 text-white">
+                      Buy Now
+                    </Button>
+                  </div>
                 </div>
-              </div>
               </Link>
             ))}
         </div>
 
         {/* Show message when no items found */}
-        {nftItems.filter((item) => activeTab === "All" || item.category === activeTab).length === 0 && (
+        {nftItems.filter(
+          (item) => activeTab === "All" || item.category === activeTab
+        ).length === 0 && (
           <div className="text-center py-12">
-            <p className="text-gray-400 text-lg">No NFTs found in this category.</p>
+            <p className="text-gray-400 text-lg">
+              No NFTs found in this category.
+            </p>
           </div>
         )}
 
@@ -393,7 +416,7 @@ export default function Home() {
             variant="outline"
             className="border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white bg-transparent"
           >
-            <Link href='/explore'>Explore More</Link>
+            <Link href="/explore">Explore More</Link>
           </Button>
         </div>
       </section>
@@ -401,23 +424,32 @@ export default function Home() {
       {/* Steps Section */}
       <section className="px-6 py-16 max-w-7xl mx-auto text-white">
         <div className="mb-12">
-          <p className="text-orange-500 text-sm font-medium mb-2">— Steps For Sell & Buy</p>
-          <h2 className="text-4xl md:text-5xl font-bold">Easy Steps To Create And Sell Your NFT</h2>
+          <p className="text-orange-500 text-sm font-medium mb-2">
+            — Steps For Sell & Buy
+          </p>
+          <h2 className="text-4xl md:text-5xl font-bold">
+            Easy Steps To Create And Sell Your NFT
+          </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {steps.map((step, index) => (
-            <div key={index} className="space-y-4 rounded-2xl border-0 p-4 shadow shadow-purple-950">
+            <div
+              key={index}
+              className="space-y-4 rounded-2xl border-0 p-4 shadow shadow-purple-950"
+            >
               <div className="text-orange-500">{step.icon}</div>
               <h3 className="text-xl font-semibold">{step.title}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">{step.description}</p>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                {step.description}
+              </p>
             </div>
           ))}
         </div>
       </section>
 
-     {/* NFT Detection Section */}
-      <section className="px-6 py-16 max-w-7xl mx-auto text-white"> 
+      {/* NFT Detection Section */}
+      <section className="px-6 py-16 max-w-7xl mx-auto text-white">
         <div className="bg-gradient-to-br from-gray-900 to-gray-700 rounded-3xl p-8 md:p-12 border border-gray-700 relative overflow-hidden">
           {/* Background decoration */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl -translate-y-32 translate-x-32"></div>
@@ -432,7 +464,9 @@ export default function Home() {
 
             <div className="flex items-center gap-2 justify-center mb-4">
               <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-              <span className="text-orange-500 text-sm font-medium">— NFT Detection</span>
+              <span className="text-orange-500 text-sm font-medium">
+                — NFT Detection
+              </span>
             </div>
 
             <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
@@ -444,8 +478,9 @@ export default function Home() {
             </h2>
 
             <p className="text-gray-300 text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed">
-              Use our advanced AI-powered detection system to identify, verify, and analyze NFTs across multiple
-              blockchains. Get detailed insights about authenticity, rarity, and market value.
+              Use our advanced AI-powered detection system to identify, verify,
+              and analyze NFTs across multiple blockchains. Get detailed
+              insights about authenticity, rarity, and market value.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
@@ -464,11 +499,9 @@ export default function Home() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all hover:scale-105"
-              >
+              <Button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all hover:scale-105">
                 <Search className="w-5 h-5 mr-2" />
-                <Link href='/detection'>Start NFT Detection</Link>
+                <Link href="/detection">Start NFT Detection</Link>
               </Button>
             </div>
           </div>
