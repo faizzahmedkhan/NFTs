@@ -161,6 +161,7 @@ import { Card } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
+import Image from "next/image"
 
 interface DetectionResult {
   filename: string
@@ -332,7 +333,7 @@ export default function Component() {
                   <div className="grid md:grid-cols-2 gap-6">
                     {/* Image Preview */}
                     <div>
-                      <img
+                      <Image
                         src={result.preview || "/placeholder.svg"}
                         alt={result.filename}
                         className="w-full rounded-lg shadow-lg max-h-64 object-cover"
@@ -411,7 +412,7 @@ export default function Component() {
                     <Layers className="w-12 h-12 text-gray-400 group-hover:text-orange-500 transition-colors" />
                   </div>
                   {preview && (
-                    <img
+                    <Image
                       src={preview || "/placeholder.svg"}
                       alt="Preview"
                       className="mx-auto mt-4 rounded shadow max-h-32"

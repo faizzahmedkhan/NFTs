@@ -7,10 +7,11 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
+import Image from 'next/image'
 
 
 
-const page = () => {
+const Page = () => {
     const [profileImage, setProfileImage] = useState<string | null>(null)
 
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -38,7 +39,7 @@ const page = () => {
             <div className="relative">
               <div className="w-full aspect-square bg-gray-900 rounded-lg border-2 border-dashed border-gray-700 flex items-center justify-center overflow-hidden">
                 {profileImage ? (
-                  <img src={profileImage || "/placeholder.svg"} alt="Profile" className="w-full h-full object-cover" />
+                  <Image src={profileImage || "/placeholder.svg"} alt="Profile" className="w-full h-full object-cover" />
                 ) : (
                   <Plus className="w-12 h-12 text-gray-500" />
                 )}
@@ -175,4 +176,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

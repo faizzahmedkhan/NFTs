@@ -277,9 +277,9 @@ const Explore = () => {
           {/* NFT Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             {displayedItems.map((item) => (
-              <Link href="/explore/detail">
+              <Link href="/explore/detail"key={item.id}>
                 <div
-                  key={item.id}
+                  
                   className="bg-gray-900 rounded-lg overflow-hidden group hover:bg-gray-800 transition-colors"
                 >
                   <div className="relative">
